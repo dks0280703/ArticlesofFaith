@@ -178,7 +178,7 @@ public class JMWImageLoader {
     public ImageContainer get(Context context, String requestImage, ImageListener imageListener,
                               int maxWidth, int maxHeight) {
 
-        Log.d(TAG, "ImageContainer getting called");
+//        Log.d(TAG, "ImageContainer getting called");
 
         // only fulfill requests that were initiated from the main thread.
         throwIfNotOnMainThread();
@@ -217,7 +217,7 @@ public class JMWImageLoader {
 
             // The request is not already in flight. Send the new request to the network and
             // track it.
-            Log.d(TAG, "Image Request is URL");
+//            Log.d(TAG, "Image Request is URL");
             newRequest = makeImageRequest(requestImage, maxWidth, maxHeight, cacheKey);
         }else{
             newRequest = makeImageRequest(context, requestImage, maxWidth, maxHeight, cacheKey);
