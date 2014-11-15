@@ -4,12 +4,16 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import com.android.volley.ParseError;
 import com.android.volley.Response;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.ImageRequest;
+import com.jmw.volley.artbox.BitmapHelper;
+import com.jmw.volley.artbox.ImageRoundingDrawable;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -171,9 +175,19 @@ public class JMWImageRequest extends ImageRequest {
                 }
             }
 
+
+//            try {
+//                bitmap = BitmapHelper.GetBitmapClippedCircle(bitmap);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+
+
             if (bitmap == null) {
                 return Response.error(new ParseError());
             } else {
+                Log.i(TAG, "HEY WE ARE GOING TO CROP IT");
+                //Bitmap circle  = BitmapHelper.getCroppedBitmap(bitmap);
                 return Response.success(bitmap, JMWHeaderParser.parseCacheHeaders(file, data));
             }
 

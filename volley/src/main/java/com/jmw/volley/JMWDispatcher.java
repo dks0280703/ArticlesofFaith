@@ -71,10 +71,11 @@ public class JMWDispatcher extends NetworkDispatcher {
                 Response<?> response;
 
                 if (request instanceof JMWImageRequest) {
-                    Log.d(TAG, "Request is a LocalImageRequest");
+                    //Log.d(TAG, "Request is a LocalImageRequest");
                     request.addMarker("local-complete");
 
                     response = ((JMWImageRequest) request).parseFileToBitmap();
+
 
                 } else {
 
@@ -95,8 +96,13 @@ public class JMWDispatcher extends NetworkDispatcher {
                 }
 
 
+                // TODO Uncomment this when we are done
                 // Write to cache if applicable.
                 if (request.shouldCache() && response.cacheEntry != null) {
+                    //Log.i(TAG, "SHould Cache = "+request.shouldCache());
+                    //Log.i(TAG, "Key = "+request.getCacheKey());
+
+
                     mCache.put(request.getCacheKey(), response.cacheEntry);
                     request.addMarker("network-cache-written");
                 }

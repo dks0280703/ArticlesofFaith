@@ -1,20 +1,28 @@
 package com.jmw.lds.articlesoffaith.adapter;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Outline;
+import android.graphics.Rect;
+import android.os.Build;
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 
 import com.android.volley.VolleyError;
 import com.jmw.lds.articlesoffaith.AppController;
 import com.jmw.lds.articlesoffaith.R;
 import com.jmw.lds.articlesoffaith.model.Article;
+import com.jmw.lds.articlesoffaith.toolbox.FlavorHelper;
 import com.jmw.lds.articlesoffaith.toolbox.PixelHelper;
 import com.jmw.lds.articlesoffaith.widget.MyTextView;
+import com.jmw.volley.artbox.BitmapHelper;
 import com.jmw.volley.toolbox.JMWImageLoader;
 
 import java.util.List;
@@ -57,7 +65,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             @Override
             public void onResponse(JMWImageLoader.ImageContainer response, boolean isImmediate) {
                 if (response.getBitmap() != null) {
-                    viewHolder.thumb.setImageBitmap(response.getBitmap());
+                    final Bitmap bitmap = BitmapHelper.getCroppedBitmap(response.getBitmap());
+                    viewHolder.thumb.setImageBitmap(bitmap);
+                    setShadow(viewHolder);
                 }
             }
 
@@ -73,6 +83,24 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             viewHolder.divider.setVisibility(View.GONE);
         }
 
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void setShadow(ViewHolder viewHolder){
+        if(FlavorHelper.hasLollipop()) {
+            final ViewHolder vh = viewHolder;
+            ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
+                @Override
+                public void getOutline(View view, Outline outline) {
+                    Rect rect = vh.thumb.getDrawable().getBounds();
+                    outline.setOval(rect);
+                }
+            };
+
+            float depth = PixelHelper.getPixelsFromDips(AppController.getInstanceContext(), 2);
+            vh.thumb.setOutlineProvider(viewOutlineProvider);
+            vh.thumb.setElevation(depth);
+        }
     }
 
     @Override

@@ -26,7 +26,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Created by justin on 11/8/14.
  */
-abstract public class AbsParseDataActivity extends ActionBarActivity {
+abstract public class AbsParseDataActivity extends AbsToolbarActivity {
 
     /**
      * Constants

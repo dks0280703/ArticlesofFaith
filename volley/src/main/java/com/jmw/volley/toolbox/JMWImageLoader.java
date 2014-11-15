@@ -12,6 +12,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.jmw.volley.JMWRequestQueue;
+import com.jmw.volley.artbox.BitmapHelper;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -185,10 +186,12 @@ public class JMWImageLoader {
 
         final String cacheKey = getCacheKey(requestImage, maxWidth, maxHeight);
 
+        // TODO Make sure to uncomment this when we are done
         // Try to look up the request in the cache of remote images.
         Bitmap cachedBitmap = mCache.getBitmap(cacheKey);
         if (cachedBitmap != null) {
             // Return the cached bitmap.
+            //Log.i(TAG, "The image is cached!!!!");
             ImageContainer container = new ImageContainer(cachedBitmap, requestImage, null, null);
             imageListener.onResponse(container, true);
             return container;
