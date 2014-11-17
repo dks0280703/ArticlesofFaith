@@ -1,12 +1,19 @@
 package com.jmw.lds.articlesoffaith.activity;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 
 import com.jmw.lds.articlesoffaith.R;
 import com.jmw.lds.articlesoffaith.adapter.MainAdapter;
@@ -14,13 +21,14 @@ import com.jmw.lds.articlesoffaith.model.Article;
 import com.jmw.lds.articlesoffaith.toolbox.FlavorHelper;
 import com.jmw.lds.articlesoffaith.toolbox.StyleHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class MainActivity extends AbsParseDataActivity {
+public class MainActivity extends AbsParseDataActivity implements MainAdapter.OnItemClickListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -34,6 +42,8 @@ public class MainActivity extends AbsParseDataActivity {
     @InjectView(R.id.toolbar_view)
     Toolbar toolbar;
 
+    List<Article> mList;
+
 
     /**
      * This is where we set up an adapter with the list and assign it to a listview.
@@ -42,12 +52,16 @@ public class MainActivity extends AbsParseDataActivity {
     @Override
     protected void setUpListView(List<Article> list) {
         mAdapter = new MainAdapter(getApplicationContext(), R.layout.row_article, list);
+        mAdapter.setOnItemClickListener(this);
         mRecyclerView.setAdapter(mAdapter);
+        mList = list;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
@@ -59,6 +73,7 @@ public class MainActivity extends AbsParseDataActivity {
         setUpToolBar(toolbar, null);
         //toolbar.getLayoutParams().height =  PixelHelper.getScreenHeightInPixels(this)/3;
 
+
         // Set this because my list is a fixed size and it will imporove performance
         mRecyclerView.setHasFixedSize(true);
         // Setup the RecyclerView
@@ -68,6 +83,9 @@ public class MainActivity extends AbsParseDataActivity {
         mRecyclerView.setVerticalScrollBarEnabled(false);
         // Add decorations
         //mRecyclerView.addItemDecoration(new MyItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
+
+
+
 
     }
 
@@ -95,5 +113,23 @@ public class MainActivity extends AbsParseDataActivity {
     }
 
 
+    @Override
+    public void onItemCLick(View view, final int position) {
+        Log.i(TAG, "Position = " + position);
+                
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                intent.putExtra("article", mList.get(position));
+                Bundle translageBundle = ActivityOptions.makeCustomAnimation(MainActivity.this, R.anim.slide_in_left, R.anim.slide_out_left).toBundle();
+                //ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, view, "painting");
+                startActivity(intent, translageBundle);
+            }
+        }, 200);
 
+
+
+    }
 }

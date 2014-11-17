@@ -3,7 +3,7 @@
 		{
 			"id":1,
 			"title":"Articles of Faith 1:1",
-			"subTitle":"Three Separate and Distinct Beings",
+			"subTitle":"God, Jesus Christ, Holy Ghost",
 			"thumb":"thumb/thumb_af_01.jpg",
 			"image":"image/banner_af_01.jpg",
 			"body":"We believe in God, the Eternal Father, and in His Son, Jesus Christ, and in the Holy Ghost."
@@ -11,7 +11,7 @@
 		{
 			"id":2,
 			"title":"Articles of Faith 1:2",
-			"subTitle":"Adam and Eve’s Transgression",
+			"subTitle":"Adam, transgression",
 			"thumb":"thumb/thumb_af_02.jpg",
 			"image":"image/banner_af_02.jpg",
 			"body":"We believe that men will be punished for their own sins, and not for Adam’s transgression."
@@ -19,7 +19,7 @@
 		{
 			"id":3,
 			"title":"Articles of Faith 1:3",
-			"subTitle":"Through the Atonement of Christ",
+			"subTitle":"Atonement, obedience, Gospel",
 			"thumb":"thumb/thumb_af_03.jpg",
 			"image":"image/banner_af_03.jpg",
 			"body":"We believe that through the Atonement of Christ, all mankind may be saved, by obedience to the laws and ordinances of the Gospel."
@@ -27,7 +27,7 @@
 		{
 			"id":4,
 			"title":"Articles of Faith 1:4",
-			"subTitle":"The First Principles and Ordinances of the Gospel",
+			"subTitle":"First Principles, Faith, Repentance, Baptism, Hands",
 			"thumb":"thumb/thumb_af_04.jpg",
 			"image":"image/banner_af_04.jpg",
 			"body":"We believe that the first principles and ordinances of the Gospel are: first, Faith in the Lord Jesus Christ; second, Repentance; third, Baptism by immersion for the remission of sins; fourth, Laying on of hands for the gift of the Holy Ghost."
@@ -35,7 +35,7 @@
 		{
 			"id":5,
 			"title":"Articles of Faith 1:5",
-			"subTitle":"Called of God by the Laying on of Hands",
+			"subTitle":"Called, prophecy, hands, authority, administer",
 			"thumb":"thumb/thumb_af_05.jpg",
 			"image":"image/banner_af_05.jpg",
 			"body":"We believe that a man must be called of God, by prophecy, and by the laying on of hands by those who are in authority, to preach the Gospel and administer in the ordinances thereof."
@@ -43,23 +43,23 @@
 		{
 			"id":6,
 			"title":"Articles of Faith 1:6",
-			"subTitle":"The Same Organization That Existed in the Primitive Church",
+			"subTitle":"organization, apostles, prophets, pastors, teachers, evangelists",
 			"thumb":"thumb/thumb_af_06.jpg",
 			"image":"image/banner_af_06.jpg",
-			"body":"We believe in the same organization that existed in the Primitive Church, namely, apostles, prophets, pastors, teachers,evangelists, and so forth."
+			"body":"We believe in the same organization that existed in the Primitive Church, namely, apostles, prophets, pastors, teachers, evangelists, and so forth."
 		},
 		{
 			"id":7,
 			"title":"Articles of Faith 1:7",
-			"subTitle":"SUBTITLE",
+			"subTitle":"gift, tongues, prophecy, healing",
 			"thumb":"thumb/thumb_af_07.jpg",
 			"image":"image/banner_af_07.jpg",
-			"body":"We believe in the gift of tongues, prophecy, revelation, visions,healing, interpretation of tongues, and so forth."
+			"body":"We believe in the gift of tongues, prophecy, revelation, visions, healing, interpretation of tongues, and so forth."
 		},
 		{
 			"id":8,
 			"title":"Articles of Faith 1:8",
-			"subTitle":"Scripture",
+			"subTitle":"Bible, translated, Book of Mormon, word of God",
 			"thumb":"thumb/thumb_af_08.jpg",
 			"image":"image/banner_af_08.jpg",
 			"body":"We believe the Bible to be the word of God as far as it is translated correctly; we also believe the Book of Mormon to be the word of God."
@@ -67,7 +67,7 @@
 		{
 			"id":9,
 			"title":"Articles of Faith 1:9",
-			"subTitle":"Continuing Revelation",
+			"subTitle":"reveal, Kingdom of God",
 			"thumb":"thumb/thumb_af_09.jpg",
 			"image":"image/banner_af_09.jpg",
 			"body":"We believe all that God has revealed, all that He does now reveal, and we believe that He will yet reveal many great and important things pertaining to the Kingdom of God."
@@ -75,7 +75,7 @@
 		{
 			"id":10,
 			"title":"Articles of Faith 1:10",
-			"subTitle":"The Gathering of Israel",
+			"subTitle":"Gathering of Israel, Ten Tribes, Zion",
 			"thumb":"thumb/thumb_af_10.jpg",
 			"image":"image/banner_af_10.jpg",
 			"body":"We believe in the literal gathering of Israel and in the restoration of the Ten Tribes; that Zion (the New Jerusalem) will be built upon the American continent; that Christ will reign personally upon the earth; and, that the earth will be renewed and receive its paradisiacal glory."
@@ -83,7 +83,7 @@
 		{
 			"id":11,
 			"title":"Articles of Faith 1:11",
-			"subTitle":"The Privilege of Worshiping Almighty God",
+			"subTitle":"privilege of worshiping",
 			"thumb":"thumb/thumb_af_11.jpg",
 			"image":"image/banner_af_11.jpg",
 			"body":"We claim the privilege of worshiping Almighty God according to the dictates of our own conscience, and allow all men the same privilege, let them worship how, where, or what they may."
@@ -99,7 +99,7 @@
 		{
 			"id":13,
 			"title":"Articles of Faith 1:13",
-			"subTitle":"Characteristics of True Christianity",
+			"subTitle":"honest, true, chaste, virtuous, lovely",
 			"thumb":"thumb/thumb_af_13.jpg",
 			"image":"image/banner_af_13.jpg",
 			"body":"We believe in being honest, true, chaste, benevolent, virtuous, and in doing good to all men; indeed, we may say that we follow the admonition of Paul—We believe all things, we hope all things, we have endured many things, and hope to be able to endure all things. If there is anything virtuous, lovely, or of good report or praiseworthy, we seek after these things."

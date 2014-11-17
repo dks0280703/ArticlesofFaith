@@ -1,15 +1,23 @@
 package com.jmw.lds.articlesoffaith.activity;
 
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.transition.Explode;
+import android.transition.Fade;
+import android.transition.Slide;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 
 import com.jmw.lds.articlesoffaith.R;
+import com.jmw.lds.articlesoffaith.toolbox.FlavorHelper;
 import com.jmw.lds.articlesoffaith.widget.MyTextView;
 
 /**
@@ -39,6 +47,24 @@ public abstract class AbsToolbarActivity extends ActionBarActivity{
         }
 
 
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        super.onCreate(savedInstanceState);
+
+        setupTransitions();
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public void setupTransitions(){
+        if(FlavorHelper.hasLollipop()){
+
+            // set transitions
+            getWindow().setEnterTransition(new Explode());
+            getWindow().setExitTransition(new Explode());
+        }
     }
 
 }

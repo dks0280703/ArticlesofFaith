@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">Articles of Faith</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="key_words">Key Words:</string>
     <string name="action_settings">Settings</string>
+
 
 </resources>

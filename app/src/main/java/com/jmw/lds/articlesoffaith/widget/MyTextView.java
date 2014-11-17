@@ -44,7 +44,7 @@ public class MyTextView extends TextView{
             if(typeface.isBold()){
                 super.setTypeface(FontHelper.loadFontFromAssets(FontHelper.ROBOTO_REG));
             } else {
-                super.setTypeface(FontHelper.loadFontFromAssets(FontHelper.ROBOTO_LIGHT));
+                super.setTypeface(FontHelper.loadFontFromAssets(FontHelper.ROBOTO_THIN));
             }
         }catch (Exception e){
             e.printStackTrace();

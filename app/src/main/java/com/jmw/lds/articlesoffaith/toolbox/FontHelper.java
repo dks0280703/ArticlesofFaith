@@ -21,8 +21,10 @@ public class FontHelper {
     /** Tag for the class */
     private static final String TAG = FontHelper.class.getSimpleName();
 
+    public static final String ROBOTO_THIN = "font/Roboto Thin.TTF";
     public static final String ROBOTO_LIGHT = "font/Roboto Light.TTF";
     public static final String ROBOTO_REG = "font/Roboto Regular.TTF";
+    public static final String SPECIAL = "font/FlorencesansSCOutline.TTF";
 
 
     /**
