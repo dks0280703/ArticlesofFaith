@@ -36,14 +36,10 @@ public abstract class AbsToolbarActivity extends ActionBarActivity{
         View customNav = LayoutInflater.from(this).inflate(R.layout.toolbar_custom_layout, null); // layout which contains your button.
         actionBar.setCustomView(customNav, lp);
         actionBar.setDisplayShowCustomEnabled(true);
-        //actionBar.setDisplayHomeAsUpEnabled(true);
 
         if(title != null && !TextUtils.equals(title, new String())) {
             MyTextView textView = (MyTextView) findViewById(R.id.custom_action_bar_title);
             textView.setText(title);
-            Log.i(TAG, "Here we are");
-        }else{
-            Log.i(TAG, "It's null");
         }
 
 
@@ -54,17 +50,17 @@ public abstract class AbsToolbarActivity extends ActionBarActivity{
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         super.onCreate(savedInstanceState);
 
-        setupTransitions();
+        //setupTransitions();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public void setupTransitions(){
-        if(FlavorHelper.hasLollipop()){
-
-            // set transitions
-            getWindow().setEnterTransition(new Explode());
-            getWindow().setExitTransition(new Explode());
-        }
-    }
+//    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//    public void setupTransitions(){
+//        if(FlavorHelper.hasLollipop()){
+//
+//            // set transitions
+//            getWindow().setEnterTransition(new Explode());
+//            getWindow().setExitTransition(new Explode());
+//        }
+//    }
 
 }

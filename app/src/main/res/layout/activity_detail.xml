@@ -13,13 +13,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/primary"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="@style/ToolBarTheme" />
+            <include android:id="@+id/toolbar_view"
+                layout="@layout/insert_toolbar"/>
 
 
             <!-- All Text is dynamically created -->

@@ -5,10 +5,11 @@
     <color name="primary_dark">#5D4037</color>
     <color name="primary">#795548</color>
     <color name="accent">#B71C1C</color>
-    <color name="text_primary">#87000000</color>
-    <color name="text_secondary">#54000000</color>
-    <color name="text_hint">#26000000</color>
-    <color name="text_primary_white">#87FFFFFF</color>
+    <color name="text_primary">#D9000000</color>
+    <color name="text_secondary">#8C000000</color>
+    <color name="text_hint">#59000000</color>
+    <color name="text_primary_white">#D9FFFFFF</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="transparent_white">#CCFFFFFF</color>
 </resources>

@@ -24,7 +24,6 @@ public class FontHelper {
     public static final String ROBOTO_THIN = "font/Roboto Thin.TTF";
     public static final String ROBOTO_LIGHT = "font/Roboto Light.TTF";
     public static final String ROBOTO_REG = "font/Roboto Regular.TTF";
-    public static final String SPECIAL = "font/FlorencesansSCOutline.TTF";
 
 
     /**

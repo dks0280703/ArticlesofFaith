@@ -1,16 +1,23 @@
 package com.jmw.lds.articlesoffaith.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Outline;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -21,13 +28,12 @@ import com.android.volley.VolleyError;
 import com.jmw.lds.articlesoffaith.AppController;
 import com.jmw.lds.articlesoffaith.R;
 import com.jmw.lds.articlesoffaith.model.Article;
+import com.jmw.lds.articlesoffaith.toolbox.AnimationHelper;
 import com.jmw.lds.articlesoffaith.toolbox.FlavorHelper;
 import com.jmw.lds.articlesoffaith.toolbox.FontHelper;
 import com.jmw.lds.articlesoffaith.toolbox.PixelHelper;
-import com.jmw.lds.articlesoffaith.widget.MyTextView;
 import com.jmw.volley.toolbox.JMWImageLoader;
 
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import butterknife.ButterKnife;
@@ -36,9 +42,11 @@ import butterknife.InjectView;
 /**
  * Created by justin on 11/15/14.
  */
-public class DetailActivity extends AbsParseDataActivity {
+public class DetailActivity extends AbsToolbarActivity implements AnimationHelper.OnFinishListener{
 
     private static final String TAG = DetailActivity.class.getSimpleName();
+
+    private AnimationHelper animationHelper;
 
     @SuppressWarnings("WeakerAccess")
     @InjectView(R.id.toolbar_view)
@@ -53,10 +61,8 @@ public class DetailActivity extends AbsParseDataActivity {
     ImageView banner;
 
     // This is temporary to server as just getting data
-    @Override
-    protected void setUpListView(List<Article> list) {
+    protected void setUpArticle(Article article) {
 
-        Article article = list.get(2);
         setUpToolBar(toolbar, article.getTitle());
         toolbar.getLayoutParams().height =  PixelHelper.getScreenHeightInPixels(this)/3;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -64,8 +70,8 @@ public class DetailActivity extends AbsParseDataActivity {
 
         // Let's resize the image
         int screenWidth = PixelHelper.getScreenWidthInPixels(this);
+        int screenHeight = PixelHelper.getScreenHeightInPixels(this);
         int margin = (int)PixelHelper.getPixelsFromDips(this, 32.0f);
-        int strokeWidth = margin/2;
 
         // Let's make a 4:3 size image with 16dp margin on both side
         int imageWidth = screenWidth - margin;
@@ -79,6 +85,9 @@ public class DetailActivity extends AbsParseDataActivity {
         int space = (int)PixelHelper.getPixelsFromDips(this, 16.0f);
         int topMargin = imageHeight/2;
 
+        if(screenHeight < 1920)
+            topMargin += space;
+
 
         // Now let's create the body
         TextView body = new TextView(this);
@@ -86,7 +95,7 @@ public class DetailActivity extends AbsParseDataActivity {
         body.setText(article.getBody());
         body.setTextColor(getResources().getColor(R.color.abc_primary_text_material_light));
         body.setTextSize(20.0f);
-        FontHelper.applyFontToTextView(body, FontHelper.ROBOTO_THIN);
+        FontHelper.applyFontToTextView(body, FontHelper.ROBOTO_LIGHT);
         // Now setup the layout params
         LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.setMargins(space, topMargin, space, 0); // Left, Top, Right, Bottom;
@@ -96,7 +105,7 @@ public class DetailActivity extends AbsParseDataActivity {
 
         // Now let's create the Sub Title
         TextView subTitle = new TextView(this);
-        FontHelper.applyFontToTextView(subTitle, FontHelper.ROBOTO_THIN);
+        FontHelper.applyFontToTextView(subTitle, FontHelper.ROBOTO_LIGHT);
         subTitle.setId(generateId());
         String key = getString(R.string.key_words);
         String words = article.getSubTitle().toUpperCase();
@@ -109,7 +118,7 @@ public class DetailActivity extends AbsParseDataActivity {
         subTitle.setTextSize(12.0f);
         // Now setup the layout params
         params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        params.setMargins(space, space, space, 0); // Left, Top, Right, Bottom;
+        params.setMargins(space, space, space, space); // Left, Top, Right, Bottom;
         params.addRule(RelativeLayout.BELOW, body.getId());
         relativeLayout.addView(subTitle, params);
 
@@ -121,17 +130,27 @@ public class DetailActivity extends AbsParseDataActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_detail);
         ButterKnife.inject(this);
 
+        animationHelper = AnimationHelper.INSTANCE;
+        animationHelper.setOnFinishListener(this);
+
+        banner.setVisibility(View.INVISIBLE);
+
+        try {
+            Article article = (Article) getIntent().getSerializableExtra(MainActivity.EXTRA_ARTICLE);
+            setUpArticle(article);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        // getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -148,15 +167,12 @@ public class DetailActivity extends AbsParseDataActivity {
         }
 
         if(id == android.R.id.home){
-            finish();
+            animationHelper.fadeOutImageAndFinish(banner, 0);
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void startActivityAfterCleanup(Class<?> cls){
-
-    }
 
     private void setBanner(Context context, Article article, int width, int height){
 
@@ -168,6 +184,8 @@ public class DetailActivity extends AbsParseDataActivity {
                 if (response.getBitmap() != null) {
                     banner.setImageBitmap(response.getBitmap());
                     setShadow(banner);
+
+                    animationHelper.fadeInImageWithDelay(banner, 0, 200);
                 }
             }
 
@@ -189,6 +207,7 @@ public class DetailActivity extends AbsParseDataActivity {
                 public void getOutline(View view, Outline outline) {
                     Rect rect = image.getDrawable().getBounds();
                     outline.setRect(rect);
+
                 }
             };
 
@@ -215,6 +234,13 @@ public class DetailActivity extends AbsParseDataActivity {
     }
 
 
+
+    @Override
+    public void onBackPressed(){
+        animationHelper.fadeOutImageAndFinish(banner, 0);
+    }
+
+
     @Override
     public void finish() {
         super.finish();
@@ -222,4 +248,13 @@ public class DetailActivity extends AbsParseDataActivity {
     }
 
 
+    @Override
+    public void onFadeOut() {
+        DetailActivity.this.finish();
+    }
+
+    @Override
+    public void onFadeIn() {
+
+    }
 }

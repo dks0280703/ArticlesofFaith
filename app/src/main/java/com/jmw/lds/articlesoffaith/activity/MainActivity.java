@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 
+import com.jmw.lds.articlesoffaith.MyAppWidget;
 import com.jmw.lds.articlesoffaith.R;
 import com.jmw.lds.articlesoffaith.adapter.MainAdapter;
 import com.jmw.lds.articlesoffaith.model.Article;
@@ -27,10 +28,13 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+import static android.support.v7.widget.RecyclerView.OnScrollListener;
+
 
 public class MainActivity extends AbsParseDataActivity implements MainAdapter.OnItemClickListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
+    public static final String EXTRA_ARTICLE = "article";
 
     private MainAdapter mAdapter;
 
@@ -62,6 +66,7 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
         super.onCreate(savedInstanceState);
 
 
+        Log.i(TAG, "OnResume Called");
 
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
@@ -71,7 +76,6 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
         }
 
         setUpToolBar(toolbar, null);
-        //toolbar.getLayoutParams().height =  PixelHelper.getScreenHeightInPixels(this)/3;
 
 
         // Set this because my list is a fixed size and it will imporove performance
@@ -85,16 +89,38 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
         //mRecyclerView.addItemDecoration(new MyItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
 
 
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Log.i(TAG, "OnResume Called");
+        if(getIntent()!=null && getIntent().getExtras()!=null){
+
+            int flag = getIntent().getExtras().getInt(MyAppWidget.EXTRA_ID);
+            if(flag!=0) {
+                mRecyclerView.scrollToPosition(flag - 1);
+                onItemCLick(null, flag - 1);
+                getIntent().removeExtra(MyAppWidget.EXTRA_ID);
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+
 
 
     }
 
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        // getMenuInflater().inflate(R.menu.menu_main, menu);
+        return false;
     }
 
     @Override
@@ -116,13 +142,13 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
     @Override
     public void onItemCLick(View view, final int position) {
         Log.i(TAG, "Position = " + position);
-                
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-                intent.putExtra("article", mList.get(position));
+                intent.putExtra(EXTRA_ARTICLE, mList.get(position));
                 Bundle translageBundle = ActivityOptions.makeCustomAnimation(MainActivity.this, R.anim.slide_in_left, R.anim.slide_out_left).toBundle();
                 //ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, view, "painting");
                 startActivity(intent, translageBundle);
@@ -132,4 +158,6 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
 
 
     }
+
+
 }

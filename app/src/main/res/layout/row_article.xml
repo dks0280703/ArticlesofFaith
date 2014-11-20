@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="?android:attr/selectableItemBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/list_selector"
     android:layout_width="match_parent"
     android:layout_height="@dimen/row_height">
 
@@ -17,6 +18,7 @@
     <com.jmw.lds.articlesoffaith.widget.MyTextView
         style="@style/MainRowBodyTextView"
         android:id="@+id/body"
+        android:textStyle="normal"
         android:layout_toRightOf="@+id/thumb" android:layout_toEndOf="@+id/thumb"
         android:layout_alignTop="@+id/thumb"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -24,6 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
+
+
 
 
     <View
@@ -36,3 +40,5 @@
         android:layout_alignLeft="@+id/body"/>
 
 </RelativeLayout>
+
+    <!-- -->

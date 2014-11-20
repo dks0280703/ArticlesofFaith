@@ -31,22 +31,24 @@ public class MyTextView extends TextView{
         super(context, attrs, defStyleAttr);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public MyTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-    }
+//    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//    public MyTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+//        super(context, attrs, defStyleAttr, defStyleRes);
+//    }
 
     @Override
     public void setTypeface(Typeface typeface) {
-        //Log.i(TAG, "Typeface being called");
+
 
         try{
-            if(typeface.isBold()){
+            if(typeface!=null && typeface.getStyle() == Typeface.BOLD){
                 super.setTypeface(FontHelper.loadFontFromAssets(FontHelper.ROBOTO_REG));
+                Log.i(TAG, "TypeFace is not null and style is "+typeface.getStyle());
             } else {
-                super.setTypeface(FontHelper.loadFontFromAssets(FontHelper.ROBOTO_THIN));
+                super.setTypeface(FontHelper.loadFontFromAssets(FontHelper.ROBOTO_LIGHT));
             }
         }catch (Exception e){
+            Log.w(TAG, "BOOOOOOOOOOOO!!!!!!!!");
             e.printStackTrace();
         }
     }
