@@ -73,6 +73,14 @@ public class Article implements Serializable {
     }
 
     @Expose
+    @SerializedName("thumb_widget")
+    private String thumb_widget;
+
+    public String getThumbWidget(){ return  thumb_widget; }
+
+    public void setThumbWidget(String thumb_widget){ this.thumb_widget = thumb_widget; }
+
+    @Expose
     @SerializedName("image")
     private String image;
 

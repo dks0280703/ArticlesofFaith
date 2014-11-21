@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.Window;
 
 import com.jmw.lds.articlesoffaith.MyAppWidget;
+import com.jmw.lds.articlesoffaith.MyAppWidgetConfigureActivity;
 import com.jmw.lds.articlesoffaith.R;
 import com.jmw.lds.articlesoffaith.adapter.MainAdapter;
 import com.jmw.lds.articlesoffaith.model.Article;
@@ -94,15 +95,18 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
     @Override
     protected void onResume(){
         super.onResume();
-        Log.i(TAG, "OnResume Called");
         if(getIntent()!=null && getIntent().getExtras()!=null){
 
-            int flag = getIntent().getExtras().getInt(MyAppWidget.EXTRA_ID);
-            if(flag!=0) {
-                mRecyclerView.scrollToPosition(flag - 1);
-                onItemCLick(null, flag - 1);
-                getIntent().removeExtra(MyAppWidget.EXTRA_ID);
+            Article article = (Article) getIntent().getExtras().getSerializable(EXTRA_ARTICLE);
+            if(article instanceof Article){
+                int flag = article.getId()-1;
+                mRecyclerView.scrollToPosition(flag);
+                onItemCLick(null, flag);
+                Log.i(TAG, "Flag = "+flag);
+                getIntent().removeExtra(EXTRA_ARTICLE);
             }
+
+
         }
     }
 
@@ -119,8 +123,8 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        // getMenuInflater().inflate(R.menu.menu_main, menu);
-        return false;
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
@@ -132,6 +136,8 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(MainActivity.this, MyAppWidgetConfigureActivity.class);
+            startActivity(intent);
             return true;
         }
 
@@ -141,7 +147,6 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
 
     @Override
     public void onItemCLick(View view, final int position) {
-        Log.i(TAG, "Position = " + position);
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

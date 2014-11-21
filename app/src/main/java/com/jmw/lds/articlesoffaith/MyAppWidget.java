@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
@@ -23,6 +24,7 @@ import com.jmw.lds.articlesoffaith.activity.MainActivity;
 import com.jmw.lds.articlesoffaith.model.Article;
 import com.jmw.lds.articlesoffaith.toolbox.BitmapHelper;
 import com.jmw.lds.articlesoffaith.toolbox.PixelHelper;
+import com.jmw.lds.articlesoffaith.toolbox.ResourceHelper;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -62,7 +64,7 @@ public class MyAppWidget extends AppWidgetProvider {
         // When the user deletes the widget, delete the preference associated with it.
         final int N = appWidgetIds.length;
         for (int i = 0; i < N; i++) {
-            MyAppWidgetConfigureActivity.deleteTitlePref(context, appWidgetIds[i]);
+            MyAppWidgetConfigureActivity.deleteArticlePref(context, appWidgetIds[i]);
         }
 
 
@@ -88,31 +90,23 @@ public class MyAppWidget extends AppWidgetProvider {
                                 int appWidgetId) {
 
         appWidgetManager = widgetManager;
-        CharSequence widgetText = MyAppWidgetConfigureActivity.loadTitlePref(context, appWidgetId);
 
-        // Construct the RemoteViews object
-        views = new RemoteViews(context.getPackageName(), R.layout.my_app_widget);
-        views.setTextViewText(R.id.appwidget_text, widgetText);
-        views.setImageViewResource(R.id.appwidget_thumb, R.drawable.thumb_widget_af_11);
-
-
-        Article article = new Article();
-        article.setId(11);
-        article.setTitle("Articles of Faith 1:11");
-        article.setSubTitle("privilege of worshiping");
-        article.setThumb("thumb/thumb_af_11.jpg");
-        article.setImage("image/banner_af_11.jpg");
-        article.setBody("We claim the privilege of worshiping Almighty God according to the dictates of our own conscience, and allow all men the same privilege, let them worship how, where, or what they may.");
+        Article article = MyAppWidgetConfigureActivity.loadArticlePref(context, appWidgetId);
+        if(article instanceof Article && article.getBody()!=null) {
+            // Construct the RemoteViews object
+            views = new RemoteViews(context.getPackageName(), R.layout.my_app_widget);
+            views.setTextViewText(R.id.appwidget_text, article.getBody());
+            views.setImageViewResource(R.id.appwidget_thumb, ResourceHelper.getResDrawableId(article.getThumbWidget()));
 
 
 
-        Intent intent = Intent.makeRestartActivityTask(new ComponentName(context, MainActivity.class));
-        intent.putExtra(MainActivity.EXTRA_ARTICLE, article);
-        intent.putExtra(EXTRA_ID, 11);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-        views.setOnClickPendingIntent(R.id.appwidget_root, pendingIntent);
 
+            Intent intent = Intent.makeRestartActivityTask(new ComponentName(context, MainActivity.class));
+            intent.putExtra(MainActivity.EXTRA_ARTICLE, article);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+            views.setOnClickPendingIntent(R.id.appwidget_root, pendingIntent);
 
+        }
 
 
 

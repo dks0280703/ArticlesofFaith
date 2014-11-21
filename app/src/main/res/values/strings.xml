@@ -3,9 +3,14 @@
 
     <string name="app_name">Articles of Faith</string>
     <string name="key_words">Key Words:</string>
-    <string name="action_settings">Settings</string>
-    <string name="appwidget_text">Articles of Faith</string>
+    <string name="action_settings">Widget Settings</string>
+
+
+    <!-- Widget -->
     <string name="configure">Configure</string>
+    <string name="appwidget_text">Articles of Faith Widget</string>
     <string name="add_widget">Add widget</string>
+    <string name="spinner_hint">Select an Article of Faith: </string>
+    <string name="submit">GO</string>
 
 </resources>

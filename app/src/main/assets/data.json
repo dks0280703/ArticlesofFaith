@@ -5,6 +5,7 @@
 			"title":"Articles of Faith 1:1",
 			"subTitle":"God, Jesus Christ, Holy Ghost",
 			"thumb":"thumb/thumb_af_01.jpg",
+			"thumb_widget":"thumb_widget_af_01",
 			"image":"image/banner_af_01.jpg",
 			"body":"We believe in God, the Eternal Father, and in His Son, Jesus Christ, and in the Holy Ghost."
 		},
@@ -13,6 +14,7 @@
 			"title":"Articles of Faith 1:2",
 			"subTitle":"Adam, transgression",
 			"thumb":"thumb/thumb_af_02.jpg",
+			"thumb_widget":"thumb_widget_af_02",
 			"image":"image/banner_af_02.jpg",
 			"body":"We believe that men will be punished for their own sins, and not for Adam’s transgression."
 		},
@@ -21,6 +23,7 @@
 			"title":"Articles of Faith 1:3",
 			"subTitle":"Atonement, obedience, Gospel",
 			"thumb":"thumb/thumb_af_03.jpg",
+			"thumb_widget":"thumb_widget_af_03",
 			"image":"image/banner_af_03.jpg",
 			"body":"We believe that through the Atonement of Christ, all mankind may be saved, by obedience to the laws and ordinances of the Gospel."
 		},
@@ -29,6 +32,7 @@
 			"title":"Articles of Faith 1:4",
 			"subTitle":"First Principles, Faith, Repentance, Baptism, Hands",
 			"thumb":"thumb/thumb_af_04.jpg",
+			"thumb_widget":"thumb_widget_af_04",
 			"image":"image/banner_af_04.jpg",
 			"body":"We believe that the first principles and ordinances of the Gospel are: first, Faith in the Lord Jesus Christ; second, Repentance; third, Baptism by immersion for the remission of sins; fourth, Laying on of hands for the gift of the Holy Ghost."
 		},
@@ -37,6 +41,7 @@
 			"title":"Articles of Faith 1:5",
 			"subTitle":"Called, prophecy, hands, authority, administer",
 			"thumb":"thumb/thumb_af_05.jpg",
+			"thumb_widget":"thumb_widget_af_05",
 			"image":"image/banner_af_05.jpg",
 			"body":"We believe that a man must be called of God, by prophecy, and by the laying on of hands by those who are in authority, to preach the Gospel and administer in the ordinances thereof."
 		},
@@ -45,6 +50,7 @@
 			"title":"Articles of Faith 1:6",
 			"subTitle":"organization, apostles, prophets, pastors, teachers, evangelists",
 			"thumb":"thumb/thumb_af_06.jpg",
+			"thumb_widget":"thumb_widget_af_06",
 			"image":"image/banner_af_06.jpg",
 			"body":"We believe in the same organization that existed in the Primitive Church, namely, apostles, prophets, pastors, teachers, evangelists, and so forth."
 		},
@@ -53,6 +59,7 @@
 			"title":"Articles of Faith 1:7",
 			"subTitle":"gift, tongues, prophecy, healing",
 			"thumb":"thumb/thumb_af_07.jpg",
+			"thumb_widget":"thumb_widget_af_07",
 			"image":"image/banner_af_07.jpg",
 			"body":"We believe in the gift of tongues, prophecy, revelation, visions, healing, interpretation of tongues, and so forth."
 		},
@@ -61,6 +68,7 @@
 			"title":"Articles of Faith 1:8",
 			"subTitle":"Bible, translated, Book of Mormon, word of God",
 			"thumb":"thumb/thumb_af_08.jpg",
+			"thumb_widget":"thumb_widget_af_08",
 			"image":"image/banner_af_08.jpg",
 			"body":"We believe the Bible to be the word of God as far as it is translated correctly; we also believe the Book of Mormon to be the word of God."
 		},
@@ -69,6 +77,7 @@
 			"title":"Articles of Faith 1:9",
 			"subTitle":"reveal, Kingdom of God",
 			"thumb":"thumb/thumb_af_09.jpg",
+			"thumb_widget":"thumb_widget_af_09",
 			"image":"image/banner_af_09.jpg",
 			"body":"We believe all that God has revealed, all that He does now reveal, and we believe that He will yet reveal many great and important things pertaining to the Kingdom of God."
 		},
@@ -77,6 +86,7 @@
 			"title":"Articles of Faith 1:10",
 			"subTitle":"Gathering of Israel, Ten Tribes, Zion",
 			"thumb":"thumb/thumb_af_10.jpg",
+			"thumb_widget":"thumb_widget_af_10",
 			"image":"image/banner_af_10.jpg",
 			"body":"We believe in the literal gathering of Israel and in the restoration of the Ten Tribes; that Zion (the New Jerusalem) will be built upon the American continent; that Christ will reign personally upon the earth; and, that the earth will be renewed and receive its paradisiacal glory."
 		},
@@ -85,6 +95,7 @@
 			"title":"Articles of Faith 1:11",
 			"subTitle":"privilege of worshiping",
 			"thumb":"thumb/thumb_af_11.jpg",
+			"thumb_widget":"thumb_widget_af_11",
 			"image":"image/banner_af_11.jpg",
 			"body":"We claim the privilege of worshiping Almighty God according to the dictates of our own conscience, and allow all men the same privilege, let them worship how, where, or what they may."
 		},
@@ -93,6 +104,7 @@
 			"title":"Articles of Faith 1:12",
 			"subTitle":"Being Subject to Governmental Authority",
 			"thumb":"thumb/thumb_af_12.jpg",
+			"thumb_widget":"thumb_widget_af_12",
 			"image":"image/banner_af_12.jpg",
 			"body":"We believe in being subject to kings, presidents, rulers, and magistrates, in obeying, honoring, and sustaining the law."
 		},
@@ -101,6 +113,7 @@
 			"title":"Articles of Faith 1:13",
 			"subTitle":"honest, true, chaste, virtuous, lovely",
 			"thumb":"thumb/thumb_af_13.jpg",
+			"thumb_widget":"thumb_widget_af_13",
 			"image":"image/banner_af_13.jpg",
 			"body":"We believe in being honest, true, chaste, benevolent, virtuous, and in doing good to all men; indeed, we may say that we follow the admonition of Paul—We believe all things, we hope all things, we have endured many things, and hope to be able to endure all things. If there is anything virtuous, lovely, or of good report or praiseworthy, we seek after these things."
 		}
