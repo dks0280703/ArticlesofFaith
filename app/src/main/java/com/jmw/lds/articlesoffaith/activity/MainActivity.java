@@ -99,6 +99,9 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
 
             Article article = (Article) getIntent().getExtras().getSerializable(EXTRA_ARTICLE);
             if(article instanceof Article){
+
+                Log.d(TAG, "onResume is going to  article "+article.getId()+" title "+article.getTitle());
+
                 int flag = article.getId()-1;
                 mRecyclerView.scrollToPosition(flag);
                 onItemCLick(null, flag);
@@ -124,7 +127,7 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        return false;
     }
 
     @Override
@@ -136,9 +139,7 @@ public class MainActivity extends AbsParseDataActivity implements MainAdapter.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(MainActivity.this, MyAppWidgetConfigureActivity.class);
-            startActivity(intent);
-            return true;
+
         }
 
         return super.onOptionsItemSelected(item);

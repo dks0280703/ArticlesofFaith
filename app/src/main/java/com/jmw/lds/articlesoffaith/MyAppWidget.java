@@ -103,8 +103,10 @@ public class MyAppWidget extends AppWidgetProvider {
 
             Intent intent = Intent.makeRestartActivityTask(new ComponentName(context, MainActivity.class));
             intent.putExtra(MainActivity.EXTRA_ARTICLE, article);
-            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             views.setOnClickPendingIntent(R.id.appwidget_root, pendingIntent);
+
+            Log.d(TAG, "appWidgetID "+appWidgetId+" is being ready to send article "+article.getId()+" title "+article.getTitle());
 
         }
 

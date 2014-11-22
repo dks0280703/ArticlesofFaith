@@ -111,12 +111,15 @@ public class MyAppWidgetConfigureActivity extends AbsParseDataActivity implement
         String jsonString = gson.toJson(article);
         prefs.putString(PREF_PREFIX_KEY + appWidgetId, jsonString);
         prefs.commit();
+
+        Log.d(TAG, "appWidgetID "+appWidgetId+" is being saved with article "+article.getId()+" title "+article.getTitle());
     }
 
     public static void deleteArticlePref(Context context, int appWidgetId) {
         SharedPreferences.Editor prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
         prefs.remove(PREF_PREFIX_KEY + appWidgetId);
         prefs.commit();
+        Log.w(TAG, "appWidgetID "+appWidgetId+" is being deleted");
     }
 
     public static Article loadArticlePref(Context context, int appWidgetId) {
@@ -131,6 +134,9 @@ public class MyAppWidgetConfigureActivity extends AbsParseDataActivity implement
         GsonHelper gsonHelper = new GsonHelper();
         Gson gson = gsonHelper.getGson();
         Article article = gson.fromJson(jsonString, Article.class);
+
+        Log.d(TAG, "appWidgetID "+appWidgetId+" is being loaded with article "+article.getId()+" title "+article.getTitle());
+
         return article;
     }
 
@@ -139,7 +145,7 @@ public class MyAppWidgetConfigureActivity extends AbsParseDataActivity implement
     public void onClick(View v) {
 
         final Context context = MyAppWidgetConfigureActivity.this;
-        deleteArticlePref(context, mAppWidgetId);
+        //deleteArticlePref(context, mAppWidgetId);
         saveArticlePref(context, mAppWidgetId, mArticle);
 
         // It is the responsibility of the configuration activity to update the app widget

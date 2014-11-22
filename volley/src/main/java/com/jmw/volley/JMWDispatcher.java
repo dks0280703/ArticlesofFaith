@@ -98,14 +98,14 @@ public class JMWDispatcher extends NetworkDispatcher {
 
                 // TODO Uncomment this when we are done
                 // Write to cache if applicable.
-                if (request.shouldCache() && response.cacheEntry != null) {
-                    //Log.i(TAG, "SHould Cache = "+request.shouldCache());
-                    //Log.i(TAG, "Key = "+request.getCacheKey());
-
-
-                    mCache.put(request.getCacheKey(), response.cacheEntry);
-                    request.addMarker("network-cache-written");
-                }
+//                if (request.shouldCache() && response.cacheEntry != null) {
+//                    //Log.i(TAG, "SHould Cache = "+request.shouldCache());
+//                    //Log.i(TAG, "Key = "+request.getCacheKey());
+//
+//
+//                    mCache.put(request.getCacheKey(), response.cacheEntry);
+//                    request.addMarker("network-cache-written");
+//                }
 
                 // Post the response back.
                 request.markDelivered();
