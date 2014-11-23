@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">信仰箇条​</string>
+    <string name="key_words">キーワード:</string>
+    <string name="action_settings">ウィジェット </string>
+
+
+    <!-- Widget -->
+    <string name="configure">設定</string>
+    <string name="appwidget_text">信仰箇条 ウィジェット</string>
+    <string name="add_widget">ウィジェットを加える</string>
+    <string name="spinner_hint">信仰箇条を選ぶ:</string>
+    <string name="submit">OK</string>
+
+</resources>

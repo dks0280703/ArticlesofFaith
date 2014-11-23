@@ -1,15 +1,17 @@
 package com.jmw.lds.articlesoffaith.activity;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.ActionBarActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import com.jmw.lds.articlesoffaith.model.Article;
 import com.jmw.lds.articlesoffaith.toolbox.GsonHelper;
+import com.jmw.lds.articlesoffaith.toolbox.LocaleHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,6 +23,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -31,7 +34,6 @@ abstract public class AbsParseDataActivity extends AbsToolbarActivity {
     /**
      * Constants
      */
-    private static final String DATA_PATH = "data.json";
     private static final String DATA_ARTICLES_ARRAY_NAME = "articles";
 
     /**
@@ -137,7 +139,7 @@ abstract public class AbsParseDataActivity extends AbsToolbarActivity {
 
             GsonHelper gsonHelper = new GsonHelper();
             Gson gson = gsonHelper.getGson();
-            String data = loadData(DATA_PATH);
+            String data = loadData(LocaleHelper.getData());
 
             JSONObject json = new JSONObject(data);
             JSONArray array = json.getJSONArray(DATA_ARTICLES_ARRAY_NAME);
@@ -186,12 +188,24 @@ abstract public class AbsParseDataActivity extends AbsToolbarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        Resources res = this.getResources();
+        // Change locale settings in the app.
+        DisplayMetrics dm = res.getDisplayMetrics();
+        android.content.res.Configuration conf = res.getConfiguration();
+        conf.locale = new Locale("ja");
+        res.updateConfiguration(conf, dm);
+
+        LocaleHelper.saveLanguagePref("ja");
+
         parseData();
     }
 
     @Override
     protected void onResume(){
         super.onResume();
+        LocaleHelper.getData();
     }
 
     @Override

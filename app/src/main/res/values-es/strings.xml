@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Artículos de Fe</string>
+    <string name="key_words">Palabras clave:</string>
+    <string name="action_settings">Widget Settings</string>
+
+
+    <!-- Widget -->
+    <string name="configure">Configure</string>
+    <string name="appwidget_text">Artículos de Fe Widget</string>
+    <string name="add_widget">Añadir widget</string>
+    <string name="spinner_hint">Seleccione un Artículo de la Fe: </string>
+    <string name="submit">GO</string>
+
+</resources>

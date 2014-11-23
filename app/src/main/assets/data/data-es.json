@@ -1,0 +1,121 @@
+{
+	"articles":[
+		{
+			"id":1,
+			"title":"Artículos de Fe 1:1",
+			"subTitle":"Dios, Jesús Cristo, Espíritu Santo",
+			"thumb":"thumb/thumb_af_01.jpg",
+			"thumb_widget":"thumb_widget_af_01",
+			"image":"image/banner_af_01.jpg",
+			"body":"NOSOTROS creemos en Dios el Eterno Padre, y en su Hijo Jesucristo, y en el Espíritu Santo."
+		},
+		{
+			"id":2,
+			"title":"Artículos de Fe 1:2",
+			"subTitle":"transgresión de Adán",
+			"thumb":"thumb/thumb_af_02.jpg",
+			"thumb_widget":"thumb_widget_af_02",
+			"image":"image/banner_af_02.jpg",
+			"body":"Creemos que los hombres serán castigados por sus propios pecados, y no por la transgresión de Adán."
+		},
+		{
+			"id":3,
+			"title":"Artículos de Fe 1:3",
+			"subTitle":"Expiación de Cristo, obediencia, ordenanzas",
+			"thumb":"thumb/thumb_af_03.jpg",
+			"thumb_widget":"thumb_widget_af_03",
+			"image":"image/banner_af_03.jpg",
+			"body":" Creemos que por la Expiación de Cristo, todo el género humano puede salvarse, mediante la obediencia a las leyes y ordenanzas del Evangelio."
+		},
+		{
+			"id":4,
+			"title":"Artículos de Fe 1:4",
+			"subTitle":"los primeros principios, Fe, Arrepentimiento, Bautismo, manos",
+			"thumb":"thumb/thumb_af_04.jpg",
+			"thumb_widget":"thumb_widget_af_04",
+			"image":"image/banner_af_04.jpg",
+			"body":"Creemos que los primeros principios y ordenanzas del Evangelio son: primero, Fe en el Señor Jesucristo; segundo, Arrepentimiento; tercero, Bautismo por inmersión para la remisión de los pecados; cuarto, Imposición de manos para comunicar el don del Espíritu Santo."
+		},
+		{
+			"id":5,
+			"title":"Artículos de Fe 1:5",
+			"subTitle":"llamado, profecía, manos, autoridad, administrar",
+			"thumb":"thumb/thumb_af_05.jpg",
+			"thumb_widget":"thumb_widget_af_05",
+			"image":"image/banner_af_05.jpg",
+			"body":"Creemos que el hombre debe ser llamado por Dios, por profecía y la imposición de manos, por aquellos que tienen la autoridad, a fin de que pueda predicar el evangelio y administrar sus ordenanzas."
+		},
+		{
+			"id":6,
+			"title":"Artículos de Fe 1:6",
+			"subTitle":"organización, apóstoles, profetas, pastores, maestros, evangelistas",
+			"thumb":"thumb/thumb_af_06.jpg",
+			"thumb_widget":"thumb_widget_af_06",
+			"image":"image/banner_af_06.jpg",
+			"body":"Creemos en la misma organización que existió en la Iglesia Primitiva, esto es, apóstoles, profetas, pastores, maestros, evangelistas, etc."
+		},
+		{
+			"id":7,
+			"title":"Artículos de Fe 1:7",
+			"subTitle":"don, lenguas, profecía, sanidades",
+			"thumb":"thumb/thumb_af_07.jpg",
+			"thumb_widget":"thumb_widget_af_07",
+			"image":"image/banner_af_07.jpg",
+			"body":"Creemos en el don de lenguas, profecía, revelación, visiones, sanidades, interpretación de lenguas, etc."
+		},
+		{
+			"id":8,
+			"title":"Artículos de Fe 1:8",
+			"subTitle":"Biblia, traducida, Libro de Mormón, palabra de Dios",
+			"thumb":"thumb/thumb_af_08.jpg",
+			"thumb_widget":"thumb_widget_af_08",
+			"image":"image/banner_af_08.jpg",
+			"body":"Creemos que la Biblia es la palabra de Dios hasta donde esté traducida correctamente; también creemos que el Libro de Mormón es la palabra de Dios."
+		},
+		{
+			"id":9,
+			"title":"Artículos de Fe 1:9",
+			"subTitle":"revelado, Reino de Dios",
+			"thumb":"thumb/thumb_af_09.jpg",
+			"thumb_widget":"thumb_widget_af_09",
+			"image":"image/banner_af_09.jpg",
+			"body":"Creemos todo lo que Dios ha revelado, todo lo que actualmente revela, y creemos que aún revelará muchos grandes e importantes asuntos pertenecientes al reino de Dios."
+		},
+		{
+			"id":10,
+			"title":"Artículos de Fe 1:10",
+			"subTitle":"pueblo de Israel, las Diez Tribus, Sión",
+			"thumb":"thumb/thumb_af_10.jpg",
+			"thumb_widget":"thumb_widget_af_10",
+			"image":"image/banner_af_10.jpg",
+			"body":"Creemos en la congregación literal del pueblo de Israel y en la restauración de las Diez Tribus; que Sión (la Nueva Jerusalén) será edificada sobre el continente americano; que Cristo reinará personalmente sobre la tierra, y que la tierra será renovada y recibirá su gloria paradisíaca."
+		},
+		{
+			"id":11,
+			"title":"Artículos de Fe 1:11",
+			"subTitle":"derecho de adorar",
+			"thumb":"thumb/thumb_af_11.jpg",
+			"thumb_widget":"thumb_widget_af_11",
+			"image":"image/banner_af_11.jpg",
+			"body":"Reclamamos el derecho de adorar a Dios Todopoderoso conforme a los dictados de nuestra propia conciencia, y concedemos a todos los hombres el mismo privilegio: que adoren cómo, dónde o lo que deseen."
+		},
+		{
+			"id":12,
+			"title":"Artículos de Fe 1:12",
+			"subTitle":"reyes, presidentes, gobernantes",
+			"thumb":"thumb/thumb_af_12.jpg",
+			"thumb_widget":"thumb_widget_af_12",
+			"image":"image/banner_af_12.jpg",
+			"body":"Creemos en estar sujetos a los reyes, presidentes, gobernantes y magistrados; en obedecer, honrar y sostener la ley."
+		},
+		{
+			"id":13,
+			"title":"Artículos de Fe 1:13",
+			"subTitle":"honrados, verídicos, castos, virtuosos, bello",
+			"thumb":"thumb/thumb_af_13.jpg",
+			"thumb_widget":"thumb_widget_af_13",
+			"image":"image/banner_af_13.jpg",
+			"body":"Creemos en ser honrados, verídicos, castos, benevolentes, virtuosos y en hacer el bien a todos los hombres; en verdad, podemos decir que seguimos la admonición de Pablo: Todo lo creemos, todo lo esperamos; hemos sufrido muchas cosas, y esperamos poder sufrir todas las cosas. Si hay algo virtuoso, o bello, o de buena reputación, o digno de alabanza, a esto aspiramos."
+		}
+	]
+}
