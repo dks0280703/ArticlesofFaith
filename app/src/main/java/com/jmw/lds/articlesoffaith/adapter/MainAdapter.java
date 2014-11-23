@@ -3,12 +3,8 @@ package com.jmw.lds.articlesoffaith.adapter;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Outline;
 import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
@@ -18,15 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.jmw.lds.articlesoffaith.AppController;
 import com.jmw.lds.articlesoffaith.R;
 import com.jmw.lds.articlesoffaith.model.Article;
-import com.jmw.lds.articlesoffaith.toolbox.AnimationHelper;
 import com.jmw.lds.articlesoffaith.toolbox.FlavorHelper;
-import com.jmw.lds.articlesoffaith.toolbox.FontHelper;
 import com.jmw.lds.articlesoffaith.toolbox.PixelHelper;
 import com.jmw.lds.articlesoffaith.widget.MyTextView;
 import com.jmw.volley.artbox.BitmapHelper;
@@ -73,29 +66,37 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int position) {
-        Article article = mList.get(position);
+        final Article article = mList.get(position);
         viewHolder.body.setText(article.getBody());
         //FontHelper.applyFontToTextView(viewHolder.body, FontHelper.ROBOTO_LIGHT);
 
         JMWImageLoader imageLoader = AppController.getInstance().getImageLoader();
-
+        final int defaultImageResId = R.drawable.thumb_default;
         imageLoader.get(mContext.getApplicationContext(), article.getThumb(), new JMWImageLoader.ImageListener() {
+
+
+
             @Override
             public void onResponse(JMWImageLoader.ImageContainer response, boolean isImmediate) {
+
                 if (response.getBitmap() != null) {
-                    final Bitmap bitmap = BitmapHelper.getCroppedBitmap(response.getBitmap());
+                    final Bitmap bitmap = BitmapHelper.getCircleClippedBitmap(response.getBitmap());
                     viewHolder.thumb.setImageBitmap(bitmap);
                     setShadow(viewHolder);
+                } else {
+                    viewHolder.thumb.setImageResource(defaultImageResId);
                 }
             }
 
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "We have an error "+error.getMessage());
+                viewHolder.thumb.setImageResource(defaultImageResId);
+
             }
         }, thumbWidth, thumbHeight);
 
-        // Causes weird behavior with shadows
+        // This method does the same as the above but just implements basic behaviours
         //imageLoader.get(mContext, article.getThumb(), JMWImageLoader.getImageListener(viewHolder.thumb, R.drawable.thumb_default, R.drawable.thumb_default));
 
         // Hide divider if last row

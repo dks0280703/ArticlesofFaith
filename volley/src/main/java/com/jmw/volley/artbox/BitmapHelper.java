@@ -29,7 +29,7 @@ public class BitmapHelper {
         return bitmap;
     }
 
-    public static Bitmap getCroppedBitmap(Bitmap bitmap) {
+    public static Bitmap getCircleClippedBitmap(Bitmap bitmap) {
         Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
                 bitmap.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(output);
@@ -46,7 +46,7 @@ public class BitmapHelper {
                 bitmap.getWidth() / 2, paint);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(bitmap, rect, rect, paint);
-        //Bitmap _bmp = Bitmap.createScaledBitmap(output, 60, 60, false);
+        //Bitmap _bmp = Bitmap.createScaledBitmap(output, 72, 72, false);
         //return _bmp;
         return output;
     }
